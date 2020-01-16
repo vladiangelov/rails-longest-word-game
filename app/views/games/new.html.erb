@@ -3,10 +3,13 @@
   <% @letters.each do |letter| %>
     <li class="letters"><%= letter.capitalize %></li>
   <% end %>
+  <% @letter_string = @letters.join %>
 </div>
 
 <h2>What is the longest word that you can find?</h2>
-<form action="/score">
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="text" name="word" placeholder="Please type a word">
+  <input type="hidden" name="letters" value=<%=@letter_string %>>
   <input type="submit">
 </form>
