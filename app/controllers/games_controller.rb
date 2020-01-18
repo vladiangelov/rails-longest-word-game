@@ -9,6 +9,7 @@ class GamesController < ApplicationController
   def score
     @new_letters = letters = params[:letters].split('')
     word = params[:word]
+    # binding.pry
     @message = score_and_message(word, letters)
   end
 
